@@ -5,6 +5,7 @@ ENV VERSION=2.7.2
 RUN wget --no-verbose -O /usr/local/bin/duplicacy https://github.com/gilbertchen/duplicacy/releases/download/v${VERSION}/duplicacy_linux_arm_${VERSION}
 RUN chmod 777 /usr/local/bin/duplicacy
 RUN mkdir -p /config/scripts
+RUN mkdir -p /config/cache
 RUN mkdir -p /data
 
 COPY .duplicacy /
