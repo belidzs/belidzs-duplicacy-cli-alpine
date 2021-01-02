@@ -14,5 +14,4 @@ VOLUME /data
 
 WORKDIR /
 
-#CMD ["duplicacy", "backup"]
-CMD ["/bin/sh", "-c", "while true; do echo hello; sleep 10;done"]
+CMD ["duplicacy", "backup"]
