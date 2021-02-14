@@ -1,6 +1,6 @@
 FROM alpine:3
 
-ARG VERSION=2.7.2
+ARG VERSION
 
 RUN apk update && apk add curl
 RUN wget --no-verbose -O /usr/local/bin/duplicacy https://github.com/gilbertchen/duplicacy/releases/download/v${VERSION}/duplicacy_linux_arm_${VERSION}
