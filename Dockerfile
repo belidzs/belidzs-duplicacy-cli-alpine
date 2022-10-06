@@ -1,9 +1,10 @@
 FROM alpine:3
 
 ARG VERSION
+ARG TARGETARCH
 
 RUN apk update && apk add curl
-RUN wget --no-verbose -O /usr/local/bin/duplicacy https://github.com/gilbertchen/duplicacy/releases/download/v${VERSION}/duplicacy_linux_arm_${VERSION}
+RUN if [ "$TARGETARCH" == "amd64" ]; then export TARGETARCH="x64"; fi; wget --no-verbose -O /usr/local/bin/duplicacy "https://github.com/gilbertchen/duplicacy/releases/download/v${VERSION}/duplicacy_linux_${TARGETARCH}_${VERSION}"
 RUN chmod 777 /usr/local/bin/duplicacy && mkdir -p /config/scripts && mkdir -p /config/cache && mkdir -p /data
 
 COPY .duplicacy /

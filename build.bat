@@ -1,4 +1,2 @@
-set VERSION=2.7.2
-docker build . --no-cache --platform arm -t belidzs/duplicacy-cli-alpine:latest -t belidzs/duplicacy-cli-alpine:%VERSION% --build-arg %VERSION%
-docker push belidzs/duplicacy-cli-alpine:latest
-docker push belidzs/duplicacy-cli-alpine:%VERSION%
+set VERSION=3.0.0
+docker buildx build . --no-cache --platform linux/amd64,linux/arm,linux/arm64 --tag belidzs/duplicacy-cli-alpine:latest --tag belidzs/duplicacy-cli-alpine:%VERSION% --build-arg VERSION=%VERSION% --push
